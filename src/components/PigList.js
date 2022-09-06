@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import PigCard from './PigCard';
+import PigForm from './PigForm';
 
 function PigList ({ hogs }) {
 
-    const [pigsToDisplay, setPigsToDisplay] = useState(hogs);
+    const [displayPigs, setDisplayPigs] = useState(hogs);
     const [filters, setFilters] = useState({});
+    const [page, setPage] = useState('');
     const [sortBy, setSortBy] = useState('id');
 
     function handleFilter (event) {
@@ -13,19 +15,25 @@ function PigList ({ hogs }) {
         });
     }
 
-    function handleSort (event) {
-        setSortBy(event.target.value);
-        // const choice = event.target.value;
-        // const sortedPigs = [...pigsToDisplay].sort((a,b) => {
-        //     if (a[choice] < b[choice]) return -1;
-        //     if (a[choice] > b[choice]) return 1;
-        //     return 0;
-        // })
-        // setPigsToDisplay(sortedPigs);
-        
+    function handleHideHog (hog) {
+        const newDisplayPigs = displayPigs.filter(pig => pig !== hog);
+        setDisplayPigs(newDisplayPigs);
     }
 
-    let filteredPigs = hogs.filter(pig => {
+    function handleNewPig (newPig) {
+        setDisplayPigs([...displayPigs, newPig]);
+        setPage('');
+    }
+
+    function handleShowForm (event) {
+        setPage('form');
+    }
+
+    function handleSort (event) {
+        setSortBy(event.target.value);
+    }
+
+    const filteredPigs = displayPigs.filter(pig => {
         const results = [];
         Object.entries(filters).forEach(([filter, value]) => {
             filter = filter.split('-').pop();
@@ -35,7 +43,7 @@ function PigList ({ hogs }) {
         else return false;
     });
 
-    let sortedPigs = filteredPigs.sort((a,b) => {
+    const sortedPigs = filteredPigs.sort((a,b) => {
         if (a[sortBy] < b[sortBy]) return -1;
         if (a[sortBy] > b[sortBy]) return 1;
         return 0;
@@ -43,7 +51,7 @@ function PigList ({ hogs }) {
 
     const pigList = sortedPigs.map(pig => {
         return (
-            <PigCard key={pig.name} hog={pig} />
+            <PigCard key={pig.name} hog={pig} hideHog={handleHideHog} />
         )
     })
     
@@ -66,8 +74,11 @@ function PigList ({ hogs }) {
                         <option value='weight'>weight</option>
                     </select>
                 </label>
+                <label>
+                    <button onClick={handleShowForm}>new pig form</button>
+                </label>
             </div>
-            <div id='pig-list'>{pigList}</div>
+            {page === 'form' ? <PigForm onSubmit={handleNewPig} /> : <div id='ui cards'>{pigList}</div>}
         </>
     )
 }
