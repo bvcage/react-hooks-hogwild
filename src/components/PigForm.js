@@ -50,7 +50,7 @@ function PigForm ({ onSubmit }) {
                 <input type='text' name='image' onChange={handleChange} />
                 <br />
 
-                <button type='submit'>submit</button>
+                <div type='submit' className='ui basic button'>submit</div>
             </form>
         </div>
     )

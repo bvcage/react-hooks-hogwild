@@ -56,7 +56,8 @@ function PigList ({ hogs }) {
     })
     
     return (
-        <>
+        <div className='ui center aligned basic segment'>
+            <div className="ui horizontal divider"></div>
             <div id='pig-list-options'>
                 <label>
                     Greased? 
@@ -78,8 +79,11 @@ function PigList ({ hogs }) {
                     <button onClick={handleShowForm}>new pig form</button>
                 </label>
             </div>
-            {page === 'form' ? <PigForm onSubmit={handleNewPig} /> : <div id='ui cards'>{pigList}</div>}
-        </>
+            <div className="ui horizontal divider"></div>
+            <div className='ui center aligned basic segment'>
+            {page === 'form' ? <PigForm onSubmit={handleNewPig} /> : <div className='ui special cards'>{pigList}</div>}
+            </div>
+        </div>
     )
 }
 

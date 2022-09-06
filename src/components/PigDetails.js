@@ -2,7 +2,7 @@ import React from 'react';
 
 function PigDetails ({ hog }) {
     return (
-        <div className='pig-details'>
+        <div className='content'>
             <h3>Specialty: </h3>
             <p>{hog.specialty}</p>
             <h3>Weight: </h3>
