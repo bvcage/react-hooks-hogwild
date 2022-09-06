@@ -58,29 +58,38 @@ function PigList ({ hogs }) {
     return (
         <div className='ui center aligned basic segment'>
             <div className="ui horizontal divider"></div>
-            <div id='pig-list-options'>
-                <label>
-                    Greased? 
-                    <select name='pig-filter-greased' onChange={handleFilter}>
-                        <option value=''>n/a</option>
-                        <option value='true'>Yes</option>
-                        <option value='false'>No</option>
-                    </select>
-                </label>
-                <label>
-                    Sort:
-                    <select name='pig-sort' onChange={handleSort}>
-                        <option value='id'>default</option>
-                        <option value='name'>name</option>
-                        <option value='weight'>weight</option>
-                    </select>
-                </label>
-                <label>
-                    <button onClick={handleShowForm}>new pig form</button>
-                </label>
-            </div>
+
+            
+            
+            <form id='pig-list-options' className='ui form'>
+                <div className="three fields">
+                    <div className="field">
+                        <select
+                                name='pig-filter-greased'
+                                className="ui fluid dropdown"
+                                onChange={handleFilter} >
+                            <option value="" disabled selected>greased?</option>
+                            <option value="">either</option>
+                            <option value="true">greased</option>
+                            <option value="false">not greased</option>
+                        </select>
+                    </div>
+                    <div className="field">
+                        <select name='pig-sort' onChange={handleSort}>
+                            <option value="" disabled selected>sort by...</option>
+                            <option value='id'>default</option>
+                            <option value='name'>name</option>
+                            <option value='weight'>weight</option>
+                        </select>
+                    </div>
+                    <div className="field">
+                        <button className="fluid ui button" onClick={handleShowForm}>new pig form</button>
+                    </div>
+                </div>
+            </form>
+
             <div className="ui horizontal divider"></div>
-            <div className='ui center aligned basic segment'>
+            <div className='ui basic segment'>
             {page === 'form' ? <PigForm onSubmit={handleNewPig} /> : <div className='ui special cards'>{pigList}</div>}
             </div>
         </div>
