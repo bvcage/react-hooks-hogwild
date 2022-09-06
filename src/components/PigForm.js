@@ -22,35 +22,45 @@ function PigForm ({ onSubmit }) {
     }
 
     return (
-        <div className='pig-form'>
-            <form onSubmit={handleSubmit}>
-                <label>Name: </label>
-                <input type='text'
-                    name='name'
-                    value={newPig.name}
-                    onChange={handleChange} />
-                <br />
+        <div className="ui compact right floated left aligned segment">
+            <form className="ui form" onSubmit={handleSubmit}>
+                <div className="field">
+                    <label>Name: </label>
+                    <div className="ui input">
+                    <input type='text'
+                        name='name'
+                        className="ui fluid input"
+                        value={newPig.name}
+                        onChange={handleChange}
+                    />
+                    </div>
+                </div>
 
-                <label>Specialty: </label>
-                <input type='text' name='specialty' onChange={handleChange} />
-                <br />
+                <div className="field">
+                    <label>Specialty: </label>
+                    <input type='text' name='specialty' onChange={handleChange} />
+                </div>
 
-                <label>Greased? </label>
-                <select name='greased' onChange={handleChange}>
-                    <option value={true}>Yes</option>
-                    <option value={false}>No</option>
-                </select>
-                <br />
+                <div className="field">
+                    <label>Greased? </label>
+                    <select name='greased' defaultValue="label" onChange={handleChange}>
+                        <option value="label" hidden disabled></option>
+                        <option value={true}>Yes</option>
+                        <option value={false}>No</option>
+                    </select>
+                </div>
 
-                <label>Weight: </label>
-                <input type='number' name='weight' step='.1' onChange={handleChange} />
-                <br />
+                <div className="field">
+                    <label>Weight: </label>
+                    <input type='number' name='weight' step='.1' onChange={handleChange} />
+                </div>
 
-                <label>Photo: </label>
-                <input type='text' name='image' onChange={handleChange} />
-                <br />
+                <div className="field">
+                    <label>Photo: </label>
+                    <input type='text' name='image' onChange={handleChange} />
+                </div>
 
-                <div type='submit' className='ui basic button'>submit</div>
+                <button type='submit' className='ui right floated button'>submit</button>
             </form>
         </div>
     )

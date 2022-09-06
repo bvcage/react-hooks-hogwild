@@ -58,32 +58,37 @@ function PigList ({ hogs }) {
     return (
         <div className='ui center aligned basic segment'>
             <div className="ui horizontal divider"></div>
-
-            
             
             <form id='pig-list-options' className='ui form'>
                 <div className="three fields">
                     <div className="field">
                         <select
                                 name='pig-filter-greased'
-                                className="ui fluid dropdown"
+                                defaultValue="label"
                                 onChange={handleFilter} >
-                            <option value="" disabled selected>greased?</option>
+                            <option value="label" disabled>greased?</option>
                             <option value="">either</option>
                             <option value="true">greased</option>
                             <option value="false">not greased</option>
                         </select>
                     </div>
                     <div className="field">
-                        <select name='pig-sort' onChange={handleSort}>
-                            <option value="" disabled selected>sort by...</option>
+                        <select name='pig-sort'
+                                defaultValue="label"
+                                onChange={handleSort}>
+                            <option value="label" disabled>sort by...</option>
                             <option value='id'>default</option>
                             <option value='name'>name</option>
                             <option value='weight'>weight</option>
                         </select>
                     </div>
                     <div className="field">
-                        <button className="fluid ui button" onClick={handleShowForm}>new pig form</button>
+                        <button
+                            type="button"
+                            className="fluid ui button"
+                            onClick={handleShowForm}
+                            >new pig form
+                        </button>
                     </div>
                 </div>
             </form>
