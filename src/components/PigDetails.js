@@ -1,7 +1,6 @@
 import React from 'react';
 
 function PigDetails ({ hog }) {
-    console.log(hog);
     return (
         <div className='pig-details'>
             <h3>Specialty: </h3>

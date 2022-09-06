@@ -10,7 +10,27 @@ function PigList ({ hogs }) {
     })
     
     return (
-        <div id='pig-list'>{pigList}</div>
+        <>
+            <div id='pig-list-options'>
+                <label>
+                    Greased? 
+                    <select>
+                        <option>n/a</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </label>
+                <label>
+                    Sort:
+                    <select>
+                        <option>default</option>
+                        <option>name</option>
+                        <option>weight</option>
+                    </select>
+                </label>
+            </div>
+            <div id='pig-list'>{pigList}</div>
+        </>
     )
 }
 
