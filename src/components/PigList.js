@@ -4,7 +4,7 @@ import PigCard from './PigCard';
 function PigList ({ hogs }) {
     const pigList = hogs.map(pig => {
         return (
-            <PigCard hog={pig} />
+            <PigCard key={pig.name} hog={pig} />
         )
     })
     return (

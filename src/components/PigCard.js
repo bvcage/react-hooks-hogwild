@@ -1,8 +1,11 @@
 import React from 'react';
 
-function PigCard (hog) {
+function PigCard ({ hog }) {
     return (
-        <div></div>
+        <div className='pig-card'>
+            <h2>{`${hog.name}`}</h2>
+            <img src={hog.image} alt={hog.name} />
+        </div>
     )
 }
 
