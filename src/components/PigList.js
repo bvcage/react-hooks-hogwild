@@ -7,7 +7,7 @@ function PigList ({ hogs }) {
 
     function handleFilter (event) {
         const choice = event.target.value;
-        if (choice !== 'n/a') {
+        if (choice !== 'none') {
             const filteredPigs = hogs.filter(pig => {
                 if (pig.greased.toString() === choice) return pig;
                 return false;
@@ -16,6 +16,17 @@ function PigList ({ hogs }) {
         } else {
             setPigsToDisplay(hogs);
         }
+    }
+
+    function handleSort (event) {
+        const choice = event.target.value;
+        const sortedPigs = [...pigsToDisplay].sort((a,b) => {
+            if (a[choice] < b[choice]) return -1;
+            if (a[choice] > b[choice]) return 1;
+            return 0;
+        })
+        setPigsToDisplay(sortedPigs);
+        
     }
 
     const pigList = pigsToDisplay.map(pig => {
@@ -30,17 +41,17 @@ function PigList ({ hogs }) {
                 <label>
                     Greased? 
                     <select onChange={handleFilter}>
-                        <option>n/a</option>
+                        <option value='none'>n/a</option>
                         <option value='true'>Yes</option>
                         <option value='false'>No</option>
                     </select>
                 </label>
                 <label>
                     Sort:
-                    <select>
-                        <option>default</option>
-                        <option>name</option>
-                        <option>weight</option>
+                    <select onChange={handleSort}>
+                        <option value='id'>default</option>
+                        <option value='name'>name</option>
+                        <option value='weight'>weight</option>
                     </select>
                 </label>
             </div>
