@@ -6,7 +6,7 @@ function PigList ({ hogs }) {
 
     const [displayPigs, setDisplayPigs] = useState(hogs);
     const [filters, setFilters] = useState({});
-    const [page, setPage] = useState('');
+    const [showForm, setShowForm] = useState(false);
     const [sortBy, setSortBy] = useState('id');
 
     function handleFilter (event) {
@@ -22,11 +22,11 @@ function PigList ({ hogs }) {
 
     function handleNewPig (newPig) {
         setDisplayPigs([...displayPigs, newPig]);
-        setPage('');
+        setShowForm(false);
     }
 
     function handleShowForm (event) {
-        setPage('form');
+        setShowForm(!showForm);
     }
 
     function handleSort (event) {
@@ -87,7 +87,7 @@ function PigList ({ hogs }) {
                             type="button"
                             className="fluid ui button"
                             onClick={handleShowForm}
-                            >new pig form
+                            >{ showForm ? 'return to pigs' : 'new pig form' }
                         </button>
                     </div>
                 </div>
@@ -95,7 +95,7 @@ function PigList ({ hogs }) {
 
             <div className="ui horizontal divider"></div>
             <div className='ui basic segment'>
-            {page === 'form' ? <PigForm onSubmit={handleNewPig} /> : <div className='ui special cards'>{pigList}</div>}
+            {showForm ? <PigForm onSubmit={handleNewPig} /> : <div className='ui special cards'>{pigList}</div>}
             </div>
         </div>
     )
