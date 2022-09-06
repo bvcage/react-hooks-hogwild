@@ -1,5 +1,6 @@
 const hogs = [
   {
+    id: 1,
     name: "Babe",
     specialty: "Being incredibly cute",
     greased: false,
@@ -9,6 +10,7 @@ const hogs = [
       "https://raw.githubusercontent.com/learn-co-curriculum/react-hooks-hogwild/master/public/images/babe.jpg",
   },
   {
+    id: 2,
     name: "Porkchop",
     specialty: "Making friends",
     greased: true,
@@ -18,6 +20,7 @@ const hogs = [
       "https://raw.githubusercontent.com/learn-co-curriculum/react-hooks-hogwild/master/public/images/porkchop.jpg",
   },
   {
+    id: 3,
     name: "Cherub",
     specialty: "Flying",
     greased: false,
@@ -27,6 +30,7 @@ const hogs = [
       "https://raw.githubusercontent.com/learn-co-curriculum/react-hooks-hogwild/master/public/images/cherub.jpg",
   },
   {
+    id: 4,
     name: "Piggy smalls",
     specialty: "Rapping",
     greased: true,
@@ -36,6 +40,7 @@ const hogs = [
       "https://raw.githubusercontent.com/learn-co-curriculum/react-hooks-hogwild/master/public/images/piggy_smalls.jpg",
   },
   {
+    id: 5,
     name: "Trouble",
     specialty: "Racing",
     greased: true,
@@ -45,6 +50,7 @@ const hogs = [
       "https://raw.githubusercontent.com/learn-co-curriculum/react-hooks-hogwild/master/public/images/trouble.jpg",
   },
   {
+    id: 6,
     name: "Piglet",
     specialty: "Bravery and friendship",
     greased: false,
@@ -54,6 +60,7 @@ const hogs = [
       "https://raw.githubusercontent.com/learn-co-curriculum/react-hooks-hogwild/master/public/images/piglet.jpg",
   },
   {
+    id: 7,
     name: "Peppa",
     specialty: "Being adventurous",
     greased: false,
@@ -63,6 +70,7 @@ const hogs = [
       "https://raw.githubusercontent.com/learn-co-curriculum/react-hooks-hogwild/master/public/images/peppa.jpg",
   },
   {
+    id: 8,
     name: "Truffle Shuffle",
     specialty: "Peeling oranges",
     greased: true,
@@ -72,6 +80,7 @@ const hogs = [
       "https://raw.githubusercontent.com/learn-co-curriculum/react-hooks-hogwild/master/public/images/truffle_shuffle.jpg",
   },
   {
+    id: 9,
     name: "Bailey",
     specialty: "Finding truffles",
     greased: false,
@@ -81,6 +90,7 @@ const hogs = [
       "https://raw.githubusercontent.com/learn-co-curriculum/react-hooks-hogwild/master/public/images/bailey.jpg",
   },
   {
+    id: 10,
     name: "Galaxy Note",
     specialty: "Cuddling",
     greased: true,
@@ -90,6 +100,7 @@ const hogs = [
       "https://raw.githubusercontent.com/learn-co-curriculum/react-hooks-hogwild/master/public/images/galaxy_note.jpg",
   },
   {
+    id: 11,
     name: "Leggo My Eggo",
     specialty: "Babysitting",
     greased: true,
